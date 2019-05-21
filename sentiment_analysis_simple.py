@@ -32,15 +32,13 @@ print "\nAccuracy of the classifier:", nltk.classify.util.accuracy(classifier, f
 input_reviews = [
 "John Wick is an incredible series!",
 "Keanu Reeves has done an outstanding job.",
-"The cinematography is pretty okay in this movie",
+"The cinematography is pretty bad in this movie",
 "The direction was different and the story was epic"
 ]
 
 # Output probability for every review
 for review in input_reviews:
     print "\nReview:", review
-    probdist = classifier.prob_classify(extract_features(review.split()))
+    probdist = classifier.prob_classify(get_features(review.split()))
     pred_sentiment = probdist.max()
-    print "Predicted sentiment:", pred_sentiment
-    print "Probability:", round(probdist.prob(pred_sentiment), 2)
-    print()
+    print(pred_sentiment)
